@@ -75,7 +75,10 @@ span {
     align-items: center;
     padding: 10px;
 }
-
+.home-content .info .basicinfo{
+    width: 600px;
+    text-align: left;
+}
 .home-content .profile img {
     outline: none;
     height: 400px;
@@ -606,4 +609,140 @@ box-shadow: 0 0 5px aqua, 0 0 25px aqua, 0 0 50px aqua, 0 0 100px aqua, 0 0 200p
     color: black;
     background-color: aqua;
     text-align: center;
+}
+
+/* ============================= */
+/* RESPONSIVE DESIGN */
+/* ============================= */
+
+/* Tablets & smaller laptops */
+@media (max-width: 1024px) {
+
+    .home .home-content {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding-top: 120px;
+    }
+
+    .home-content .profile {
+        right: 0;
+        margin-top: 30px;
+    }
+
+    .home-content .profile img {
+        height: 300px;
+    }
+
+    .home .home-content .info {
+        width: 100%;
+    }
+
+    .about .about_me {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about .about_me .about_me_info {
+        width: 90%;
+    }
+
+    .skills_area {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .prof_skills {
+        width: 100%;
+        margin: 40px 0;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+
+    .header {
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navigation a {
+        font-size: 18px;
+        margin-left: 10px;
+    }
+
+    .home-content .profile img {
+        height: 250px;
+    }
+
+    .subsection .card {
+        width: 90%;
+        height: auto;
+    }
+
+    .skill .bar {
+        width: 280px;
+    }
+
+    .projects_containner {
+        grid-template-columns: 1fr;
+    }
+
+    .contact_section {
+        flex-direction: column;
+    }
+
+    .contact_details_area,
+    .contact_form_area {
+        width: 100%;
+    }
+
+    .contact_form_area .form_area form input,
+    .contact_form_area .form_area form textarea {
+        width: 100%;
+    }
+
+    .prof_skills .circle {
+        margin: 20px;
+    }
+
+    .prof_skills .circle .Prof_skill_name {
+        left: 0;
+        text-align: center;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .navigation a {
+        font-size: 16px;
+    }
+
+    .home .home-content .info {
+        font-size: 16px;
+    }
+
+    .home .social_media a img {
+        width: 2.2rem;
+    }
+
+    .mysection .heading,
+    .Latest_projects h1,
+    .about h1,
+    .contact_details_area h1 {
+        font-size: 2rem;
+    }
+
+    .footarea a i {
+        font-size: 35px;
+        width: 40px;
+        height: 40px;
+    }
 }
