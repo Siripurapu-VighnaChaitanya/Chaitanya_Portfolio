@@ -75,10 +75,17 @@ span {
     align-items: center;
     padding: 10px;
 }
-.home-content .info .basicinfo{
+
+.home-content .info .basicinfo {
     width: 600px;
     text-align: left;
 }
+
+.home-content .info .basicinfo p {
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+}
+
 .home-content .profile img {
     outline: none;
     height: 400px;
@@ -104,25 +111,39 @@ span {
 
 .home .social_media {
     display: flex;
-    /* border: 2px solid black; */
+    gap: 20px;
     margin: 15px 0;
 }
 
-.home .social_media a img {
-    width: 3rem;
-    background-color: aqua;
-    border: 2px solid aqua;
-    border-radius: 50%;
-    transition: 0.3s;
-}
-
-.home .social_media a img:hover {
-    box-shadow: 0 0 5px aqua, 0 0 25px aqua, 0 0 50px aqua, 0 0 100px aqua, 0 0 200px aqua;
-
-}
-
 .home .social_media a {
-    margin: 10px;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid aqua;
+    color: aqua;
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+}
+
+.home .social_media a:hover {
+    background-color: aqua;
+    color: #000;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow:
+        0 0 5px aqua,
+        0 0 25px aqua,
+        0 0 50px aqua,
+        0 0 100px aqua;
+}
+
+/* Keyboard accessibility */
+.home .social_media a:focus-visible {
+    outline: 2px solid aqua;
+    outline-offset: 4px;
 }
 
 .home-content .info .btn {
@@ -171,6 +192,7 @@ span {
     font-size: 20px;
     padding: 10px;
     text-align: justify;
+    font-family: 'Inter', sans-serif;
 }
 
 .about_me .btn {
@@ -193,72 +215,101 @@ span {
     box-shadow: 0 0 5px aqua, 0 0 25px aqua, 0 0 50px aqua, 0 0 100px aqua, 0 0 200px aqua;
 }
 
+/* SECTION */
 .mysection {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
+/* HEADING */
 .mysection .heading {
     font-size: 3rem;
     color: white;
     font-weight: bold;
     text-align: center;
-    position: relative;
-    top: 50px;
-    margin: 60px 0;
-    /* border: 3px solid yellow; */
+    margin: 80px 0 30px;
 }
 
+.mysection .heading span {
+    color: aqua;
+}
+
+/* GRID */
 .subsection {
-    position: relative;
-    top: 60px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    width: 100%;
+    max-width: 1400px;
+    padding: 60px 40px;
+    justify-items: center;
 }
 
-.subsection .card img {
-    width: 70px;
-    position: relative;
-    left: 40%;
-    background-color: aqua;
-    border-radius: 20px;
-}
-
+/* CARD */
 .subsection .card {
-    padding: 25px;
+    padding: 30px;
     text-align: left;
-    margin-top: 40px;
-    height: 450px;
-    width: 450px;
+    min-height: 420px;
+    width: 100%;
+    max-width: 420px;
     color: white;
-    font-size: 20px;
-    /* border: 2px solid aqua; */
+    font-size: 18px;
     border-radius: 20px;
-    box-shadow: 1px 1px 20px #0186e5, 1px 1px 50px #054c2a;
+    position: relative;
+    box-shadow:
+        0 0 20px rgba(0, 255, 255, 0.35),
+        0 0 50px rgba(0, 120, 255, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card .card_heading {
-    margin: 20px 0;
+/* CARD HOVER */
+.subsection .card:hover {
+    transform: translateY(-10px);
+    box-shadow:
+        0 0 30px rgba(0, 255, 255, 0.5),
+        0 0 70px rgba(0, 120, 255, 0.4);
 }
 
+/* ICON */
+.card_icon {
+    font-size: 50px;
+    color: aqua;
+    background-color: rgba(0, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* CARD TITLE */
+.card_heading {
+    margin-bottom: 15px;
+}
+
+/* BUTTON */
 .card .btn {
     text-decoration: none;
     background: aqua;
     border: 2px solid aqua;
-    color: white;
+    color: #000;
     border-radius: 20px;
-    transition: all 0.3s;
-    padding: 10px;
-    position: relative;
-    top: 50px;
+    transition: all 0.3s ease;
+    padding: 10px 18px;
+    position: absolute;
+    bottom: 25px;
 }
 
 .card .btn:hover {
-    box-shadow: 0 0 5px aqua, 0 0 25px aqua, 0 0 50px aqua, 0 0 100px aqua, 0 0 200px aqua;
+    box-shadow:
+        0 0 5px aqua,
+        0 0 25px aqua,
+        0 0 50px aqua,
+        0 0 100px aqua;
 }
-.skills_area{
+
+
+.skills_area {
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -267,121 +318,176 @@ span {
     /* border: 2px solid red; */
     padding: 50px;
 }
-.tech_skills{
+
+.tech_skills {
     margin: 20px 90px;
 }
-.skills_area .tech_skills .skill i{
+
+.skills_area .tech_skills .skill i {
     margin-top: 15px;
 }
-.skill .bar{
+
+.skill .bar {
     position: relative;
     width: 400px;
     height: 10px;
     background-color: #000;
     border-radius: 20px;
 }
-.skill .progress{
+
+.skill .progress {
     position: relative;
     height: 100%;
     border-radius: 20px;
     background-color: aqua;
 }
-.skill .skill_name{
+
+.skill .skill_name {
     padding: 20px 0;
 }
-.skill .progress span{
-    position:absolute;
-    right:-40px;
+
+.skill .progress span {
+    position: absolute;
+    right: -40px;
     top: -50px;
     background-color: #000;
     border-radius: 10px;
     padding: 8px;
 }
-.bar #html{
+
+.bar #html {
     animation: htmlfillcolor 3s forwards;
 }
-.bar #css{
+
+.bar #css {
     animation: cssfillcolor 3s forwards;
 }
-.bar #javascript{
+
+.bar #javascript {
     animation: jsfillcolor 3s forwards;
 }
-.bar #python{
+
+.bar #python {
     animation: pythonfillcolor 3s forwards;
 }
-.bar #react{
+
+.bar #react {
     animation: reactfillcolor 3s forwards;
 }
-.bar #git{
+
+.bar #git {
     animation: gitfillcolor 3s forwards;
 }
-.bar #github{
+
+.bar #github {
     animation: githubfillcolor 3s forwards;
 }
-@keyframes htmlfillcolor{
-    from{
+.bar #mysql {
+    animation: mysqlfillcolor 3s forwards;
+}
+
+.bar #flask {
+    animation: flaskfillcolor 3s forwards;
+}
+
+
+@keyframes htmlfillcolor {
+    from {
         width: 0%;
     }
-    to{
+
+    to {
         width: 90%;
     }
 }
-@keyframes cssfillcolor{
-    from{
+
+@keyframes cssfillcolor {
+    from {
         width: 0%;
     }
-    to{
+
+    to {
         width: 75%;
     }
 }
-@keyframes jsfillcolor{
-    from{
+
+@keyframes jsfillcolor {
+    from {
         width: 0%;
     }
-    to{
+
+    to {
         width: 70%;
     }
 }
-@keyframes pythonfillcolor{
-    from{
+
+@keyframes pythonfillcolor {
+    from {
         width: 0%;
     }
-    to{
+
+    to {
         width: 85%;
     }
 }
-@keyframes reactfillcolor{
-    from{
+
+@keyframes reactfillcolor {
+    from {
         width: 0%;
     }
-    to{
+
+    to {
         width: 73%;
     }
 }
-@keyframes gitfillcolor{
-    from{
+
+@keyframes gitfillcolor {
+    from {
         width: 0%;
     }
-    to{
+
+    to {
         width: 85%;
     }
 }
-@keyframes githubfillcolor{
-    from{
+
+@keyframes githubfillcolor {
+    from {
         width: 0%;
     }
-    to{
+
+    to {
         width: 90%;
     }
 }
-.skills_area .prof_heading{
+@keyframes mysqlfillcolor {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 80%;
+    }
+}
+
+@keyframes flaskfillcolor {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 75%;
+    }
+}
+
+
+.skills_area .prof_heading {
     display: block;
     /* border: 2px solid red; */
     text-align: right;
     position: relative;
     top: -25px;
 }
-.prof_skills{
+
+.prof_skills {
     margin: 30px 90px 0 90px;
     width: 900px;
     display: flex;
@@ -391,7 +497,8 @@ span {
     align-items: center;
     /* border: 2px solid yellow; */
 }
-.prof_skills .sub_prof{
+
+.prof_skills .sub_prof {
     /* border: 2px solid blue; */
     position: relative;
     top: -35px;
@@ -401,8 +508,9 @@ span {
     justify-content: space-around;
     align-items: center;
 }
-.prof_skills .circle{
-    position:relative;
+
+.prof_skills .circle {
+    position: relative;
     top: 20px;
     display: flex;
     flex-direction: column;
@@ -417,15 +525,18 @@ span {
     animation: fillmode 3s ease forwards;
 
 }
-@keyframes fillmode{
-    from{
+
+@keyframes fillmode {
+    from {
         background: #000;
     }
-    to{
+
+    to {
         background: conic-gradient(#00e5ff calc(var(--per) * 1%), #000 0);
     }
 }
-.prof_skills .circle::before{
+
+.prof_skills .circle::before {
     content: "";
     height: 100px;
     width: 100px;
@@ -436,49 +547,55 @@ span {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
-.prof_skills .circle span{
+
+.prof_skills .circle span {
     /* position: relative; */
     z-index: 1;
 }
-.prof_skills .circle .Prof_skill_name{
+
+.prof_skills .circle .Prof_skill_name {
     text-align: center;
-    color:white;
+    color: white;
     position: relative;
     /* top: 80px; */
     left: 125px;
     /* border: 2px solid rgb(60, 255, 0); */
 }
 
-.projects_containner{ 
+.projects_containner {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(400px,auto));
+    grid-template-columns: repeat(auto-fit, minmax(400px, auto));
 }
-.Latest_projects{
+
+.Latest_projects {
     padding: 10px 0;
     margin: 20px 0;
 }
 
-.Latest_projects h1{
+.Latest_projects h1 {
     text-align: center;
     color: white;
     font-size: 3rem;
     padding: 20px;
     margin: 80px 0;
 }
-.project_card_img{
+
+.project_card_img {
     position: relative;
     padding: 10px;
 
 }
-.project_card_img .face_img{
+
+.project_card_img .face_img {
     width: 100%;
     border-radius: 15px;
     transition: all 0.3s;
 }
-.project_discription{
+
+.project_discription {
     width: 100%;
     height: 0;
     position: absolute;
@@ -490,116 +607,164 @@ span {
     justify-content: center;
     align-items: center;
     text-align: justify;
-    background: linear-gradient(rgba(0,0,0,0.1),aqua);
+    background: linear-gradient(rgba(0, 0, 0, 0.1), aqua);
     border-radius: 15px;
     padding: 0 20px;
     transition: height 0.3s;
 }
-.project_card_img .project_discription h3{
+
+.project_card_img .project_discription h3 {
     font-size: 1rem;
     color: white;
     line-height: 1.5;
 }
-.project_discription i{
+
+.project_discription i {
     margin: 30px;
     font-size: 40px;
     color: white;
 }
 
-.project_card_img:hover .face_img{
+.project_card_img:hover .face_img {
     transform: scale(1.1);
 }
-.project_card_img:hover .project_discription{
+
+.project_card_img:hover .project_discription {
     height: 100%;
 }
-.contact_section{
+
+.contact_section {
     display: flex;
     justify-content: space-around;
 }
-.contact_details_area{
+
+.contact_details_area {
     width: 50%;
     display: flex;
     flex-direction: column;
     color: white;
 
 }
-.contact_details_area h1{
+
+.contact_details_area h1 {
     margin-top: 50px;
     text-align: center;
-    font-size:3rem ;
+    font-size: 3rem;
 }
-.contact_details_area .request_area{
+
+.contact_details_area .request_area {
     margin-top: 50px;
     padding: 20px;
     line-height: 1.5;
     text-align: justify;
     font-size: 20px;
 }
-.contact_touch_in h3 i{
+
+.contact_touch_in h3 i {
     margin: 10px 0;
     padding-top: 10px;
     color: aqua;
 }
-.soc_icons_touch_in ul{
-    list-style-type: none;
+
+.soc_icons_touch_in ul {
+    list-style: none;
     display: flex;
     gap: 40px;
     margin: 20px;
     font-size: 50px;
+}
+
+/* Remove default link styles */
+.soc_icons_touch_in ul li a {
+    text-decoration: none;
     color: aqua;
 }
-.soc_icons_touch_in ul li i{
-    transition: all .3s;
-    overflow: hidden;
-    border-radius: 10px;
+
+.soc_icons_touch_in ul li i {
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
-.soc_icons_touch_in ul li i:hover{
-box-shadow: 0 0 5px aqua, 0 0 25px aqua, 0 0 50px aqua, 0 0 100px aqua, 0 0 200px aqua;
+
+.soc_icons_touch_in ul li a:hover i {
+    color: aqua;
+    box-shadow:
+        0 0 5px aqua,
+        0 0 25px aqua,
+        0 0 50px aqua,
+        0 0 100px aqua;
+    transform: scale(1.1);
 }
-.contact_form_area{
+
+.fa-linkedin:hover {
+    color: #0A66C2;
+}
+
+.fa-facebook:hover {
+    color: #1877F2;
+}
+
+.fa-instagram:hover {
+    color: #E4405F;
+}
+
+.fa-github:hover {
+    color: #ffffff;
+}
+
+.contact_form_area {
     padding: 20px;
 }
-.contact_form_area .form_area{
+
+.contact_form_area .form_area {
     width: 100%;
 }
-.contact_form_area .form_area form{
+
+.contact_form_area .form_area form {
     padding: 30px;
     display: flex;
     flex-direction: column;
     margin-top: 60px;
 }
-.contact_form_area .form_area form input,textarea{
-    color:black;
+
+.contact_form_area .form_area form input,
+textarea {
+    color: black;
     background: #e1f0ff;
     padding: 15px;
-    font-size:1.6rem;
+    font-size: 1.6rem;
     margin: 10px 0;
     outline: none;
     border: none;
     border-radius: 13px;
     width: 400px;
 }
-.form_area form textarea{
+
+.form_area form textarea {
     height: 300px;
 }
-.contact_form_area .form_area form .submit{
+
+.contact_form_area .form_area form .submit {
     background-color: aqua;
     transition: all.3s;
 }
 
-.contact_form_area .form_area form .submit:hover{
+.contact_form_area .form_area form .submit:hover {
     color: white;
     font-weight: bold;
-    box-shadow: 0 0 5px aqua, 0 0 25px aqua, 0 0 50px aqua, 0 0 100px aqua, 0 0 200px aqua;;
+    box-shadow: 0 0 5px aqua, 0 0 25px aqua, 0 0 50px aqua, 0 0 100px aqua, 0 0 200px aqua;
+    ;
 }
-.footarea .lastsection{
+
+.footarea .lastsection {
     height: auto;
     background-color: aqua;
     font-size: 20px;
     text-align: center;
     font-weight: bold;
 }
-.footarea a i{
+
+.footarea a i {
     position: fixed;
     left: 0;
     bottom: 0;
