@@ -192,7 +192,9 @@ span {
     font-size: 20px;
     padding: 10px;
     text-align: justify;
+    hyphens: auto;
     font-family: 'Inter', sans-serif;
+    line-height: 1.6;
 }
 
 .about_me .btn {
@@ -382,6 +384,7 @@ span {
 .bar #github {
     animation: githubfillcolor 3s forwards;
 }
+
 .bar #mysql {
     animation: mysqlfillcolor 3s forwards;
 }
@@ -460,10 +463,12 @@ span {
         width: 90%;
     }
 }
+
 @keyframes mysqlfillcolor {
     from {
         width: 0%;
     }
+
     to {
         width: 80%;
     }
@@ -473,6 +478,7 @@ span {
     from {
         width: 0%;
     }
+
     to {
         width: 75%;
     }
@@ -586,13 +592,70 @@ span {
 .project_card_img {
     position: relative;
     padding: 10px;
-
+    border-radius: 15px;
+    overflow: hidden;
+    height: 300px;
+    /* Fixed height for uniformity */
+    cursor: pointer;
 }
 
 .project_card_img .face_img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 15px;
-    transition: all 0.3s;
+    transition: all 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    /* Cover image on top */
+}
+
+/* Scrollable Gallery Container */
+.scrollable-gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* Behind cover initially */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    scrollbar-width: none;
+    /* Firefox */
+    scroll-behavior: smooth;
+    /* Added for smooth JS scrolling */
+}
+
+.scrollable-gallery::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.scrollable-gallery img {
+    flex: 0 0 100%;
+    /* Each image takes full width */
+    height: 100%;
+    object-fit: cover;
+    /* or contain, depending on preference */
+    scroll-snap-align: start;
+    border-radius: 15px;
+}
+
+/* Hover Effects */
+.project_card_img:hover .face_img {
+    opacity: 0;
+    z-index: 0;
+}
+
+.project_card_img:hover .scrollable-gallery {
+    opacity: 1;
+    z-index: 2;
 }
 
 .project_discription {
@@ -607,30 +670,20 @@ span {
     justify-content: center;
     align-items: center;
     text-align: justify;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), aqua);
+    hyphens: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 255, 255, 0.8));
+    /* Darker background for readability */
     border-radius: 15px;
     padding: 0 20px;
     transition: height 0.3s;
-}
-
-.project_card_img .project_discription h3 {
-    font-size: 1rem;
-    color: white;
-    line-height: 1.5;
-}
-
-.project_discription i {
-    margin: 30px;
-    font-size: 40px;
-    color: white;
-}
-
-.project_card_img:hover .face_img {
-    transform: scale(1.1);
+    line-height: 1.4;
+    z-index: 3;
+    /* Always on top of everything */
 }
 
 .project_card_img:hover .project_discription {
-    height: 100%;
+    height: 40%;
+    /* Show description on hover */
 }
 
 .contact_section {
@@ -655,8 +708,9 @@ span {
 .contact_details_area .request_area {
     margin-top: 50px;
     padding: 20px;
-    line-height: 1.5;
+    line-height: 1.6;
     text-align: justify;
+    hyphens: auto;
     font-size: 20px;
 }
 
@@ -910,4 +964,82 @@ textarea {
         width: 40px;
         height: 40px;
     }
+}
+
+/* Popup Styles */
+.popup {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Dark overlay */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+    /* Ensure on top */
+}
+
+.popup.open-popup {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-content {
+    background-color: #fff;
+    width: 350px;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(0.1);
+    transition: transform 0.3s ease;
+}
+
+.popup.open-popup .popup-content {
+    transform: scale(1);
+}
+
+.popup-content i {
+    font-size: 50px;
+    color: #4abc46;
+    /* Green checkmark */
+    margin-bottom: 20px;
+}
+
+.popup-content h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.popup-content p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.popup-content button {
+    width: 100%;
+    padding: 10px 0;
+    background: #00e5ff;
+    /* Match Aqua theme */
+    color: #000;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.popup-content button:hover {
+    background: #00c4d9;
 }
