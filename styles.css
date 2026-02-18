@@ -89,6 +89,10 @@ span {
 .home-content .profile img {
     outline: none;
     height: 400px;
+    width: 400px;
+    /* Force square */
+    object-fit: cover;
+    /* meaningful crop */
     border-radius: 50%;
     border: 2px solid aqua;
     box-shadow: 0 0 5px aqua, 0 0 25px aqua, 0 0 50px aqua, 0 0 100px aqua, 0 0 200px aqua;
@@ -168,6 +172,10 @@ span {
     margin-top: 60px;
     outline: none;
     height: 400px;
+    width: 400px;
+    /* Force square */
+    object-fit: cover;
+    /* meaningful crop */
     border-radius: 50%;
     border: 2px solid aqua;
     box-shadow: 0 0 5px aqua, 0 0 25px aqua, 0 0 50px aqua, 0 0 100px aqua, 0 0 200px aqua;
@@ -851,6 +859,8 @@ textarea {
 
     .home-content .profile img {
         height: 300px;
+        width: 300px;
+        object-fit: cover;
     }
 
     .home .home-content .info {
@@ -894,6 +904,8 @@ textarea {
 
     .home-content .profile img {
         height: 250px;
+        width: 250px;
+        object-fit: cover;
     }
 
     .subsection .card {
