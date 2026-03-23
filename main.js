@@ -1,3 +1,22 @@
+// Menu Icon Navbar
+let menuIcon = document.querySelector('#menu-icon');
+let navigation = document.querySelector('.navigation');
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navigation.classList.toggle('active');
+}
+
+// Close menu when a link is clicked
+let navLinks = document.querySelectorAll('.navigation a');
+navLinks.forEach(link => {
+    link.onclick = () => {
+        menuIcon.classList.remove('bx-x');
+        navigation.classList.remove('active');
+    }
+}
+);
+
 let skills_arr = ["FrontEnd Developer!", "Python Developer!", "Software Developer!"]
 let typing = document.querySelector(".typing");
 let index = 0;
